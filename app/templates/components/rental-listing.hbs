@@ -1,0 +1,24 @@
+<!-- On each iteration, the current object gets stored in a variable called rental -->
+<!-- Let's use the {{if}} helper to show our current rental image larger only when isWide is set to true, by setting the element class name to wide.  -->
+
+<article class="listing">
+  <a {{action 'toggleImageSize'}} class="image {{if isWide "wide"}}">
+    <img src="{{rental.image}}" alt="">
+      <small>View Larger</small>
+  </a>
+  <h3>{{#link-to "rentals.show" rental}}{{rental.title}}{{/link-to}}</h3>
+  <div class="detail owner">
+    <span>Owner:</span> {{rental.owner}}
+  </div>
+  <div class="detail type">
+    <!-- using rental-property-type helper -->
+    <span>Type:</span> {{rental-property-type rental.category}}
+     - {{rental.category}}
+  </div>
+  <div class="detail location">
+    <span>Location:</span> {{rental.city}}
+  </div>
+  <div class="detail bedrooms">
+    <span>Number of bedrooms:</span> {{rental.bedrooms}}
+  </div>
+</article>
